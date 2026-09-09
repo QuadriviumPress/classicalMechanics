@@ -97,59 +97,81 @@ S=\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt=\int_{t_a'}^{t_b'}L(q_i',\dot{q}_i',t)dt
 \end{align}
 where on the right hand side, since $t$ is just a dummy integration variable we left it as $t$ instead of $t'$ (note however that we did need to change the limits of the integral to be in the transformed time). As a notation, we imply that $L(q_i,\dot{q}_i,t)$ depends on all the $q_i$. 
  
-Because these transformations are continuous, we can consider the case of the infinitesimal version of a given transformation. If the action is invariant under the infinitesimal transformation, it will also be invariant under a series of infinitesimal transformations that lead to a total transformation. Requiring invariance under the infinitesimal transformation:
-\begin{align}
-S&=\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt=\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta q_i', \dot{q}_i+\delta\dot{q}_i',t)dt\nonumber\\
-\therefore \delta S&=\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta q_i', \dot{q}_i+\delta\dot{q}_i',t)dt-\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt
-\end{align}
-where the $\delta t_{a(b)}=g(t_a(t_b)) \delta \epsilon$ in the limits of the integral, can in principle depend on $t$ (through $g$) and are thus different at the two end points. If the action is invariant under the transformation, then $\delta S=0$.
+Because these transformations are continuous, we can consider the infinitesimal version of a given transformation. If the action is invariant under the infinitesimal transformation, it will also be invariant under a series of infinitesimal transformations that build up the total transformation.
 
-Note that we have used $q_i'=q_i+\delta q_i'$ instead of $q_i'=q_i+\delta q_i$. This is because the $q_i'$ are varied both by the transformation of coordinates, $\delta q_i$, and because of the transformation in time, $\delta t$ (since the $q_i'$ are functions of time):
+\subsection{Total and local variations}
+Before writing down the varied action, we must be careful about \textbf{which} variation of the coordinates we use. The quantity $\delta q_i=f_i\delta\epsilon$ introduced above is the \textbf{total} variation: it compares the new coordinate at the new time with the old coordinate at the old time:
 \begin{align}
-q_i'&= q_i +\delta q_i+\dot{q}_i\delta t+(\dots)\delta q \delta t\nonumber\\
-\therefore\delta q_i' &=\delta q_i+\dot{q}_i\delta t
+\delta q_i \equiv q_i'(t')-q_i(t)
 \end{align}
-%
-%Before proceeding, note the following identity. If we have a function $f(q_i,\dot{q}_i,t)$ and its anti-derivative $F(q_i,\dot{q}_i,t)$:
-%\begin{align}
-%\int_{t_a}^{t_b} f dt-\int_{t_a+\delta t_a}^{t_b+\delta t_b} f dt&=F(t_b)-F(t_a)-F(t_b+\delta t_b)+F(t_a+\delta t_a)\nonumber\\
-%\end{align}
-%where we can evaluate $F(t_a+\delta t_a)$ using a Taylor series:
-%\begin{align}
-%F(t_a+\delta t_a)&\equiv F(q_i(t_a+\delta t_a),\dot{q}_i(t_a+\delta t_a),t_a+\delta t_a)\nonumber\\
-%&=F(q_i(t_a),\dot{q}_i(t_a),t_a)+\frac{dF}{dt}\delta t_a\nonumber\\
-%&=F(t_a)+(\frac{dF}{dt}\delta t)\rvert _{t_a}=F(t_a)+(f\delta t)\rvert _{t_a}
-%\end{align}
-%Hence, we have:
-%\begin{align}
-%\int_{t_a}^{t_b} f dt-\int_{t_a+\delta t_a}^{t_b+\delta t_b} f dt&=F(t_b)-F(t_a)-F(t_b+\delta t_b)+F(t_a+\delta t_a)\nonumber\\
-%&=F(t_b)-F(t_a)+F(t_a)+(f\delta t)\rvert _{t_a}-F(t_b)-(f\delta t)\rvert _{t_b}\nonumber\\
-%&=(f\delta t)\rvert _{t_a}-(f\delta t)\rvert _{t_b}\nonumber\\
-%&=-\int_{t_a}^{t_b} \frac{d}{dt}f\delta t dt\nonumber\\
-%\therefore \int_{t_a+\delta t_a}^{t_b+\delta t_b} f dt &=\int_{t_a}^{t_b} f dt+\int_{t_a}^{t_b} \frac{d}{dt}f\delta t dt
-%\end{align}
-%allowing us to change the limits of the integral and put the $\delta t$ into one of the integrands.\textbf{NOTE: the identity above is correct as written (with a plus sign). The sign problem is further down: the Taylor expansion of the Lagrangian must be taken in the LOCAL variation $\delta q_i$, not the total variation $\delta q_i^\prime$. Carrying that through gives the conserved charge $Q=\sum_i p_i\delta q_i-(\sum_i p_i\dot q_i-L)\delta t$, i.e.\ a MINUS sign on the Jacobi-integral term, which is what the text now quotes.}
-%
-%We now examine the transformed action, before considering the variation in the action. Since the $\delta$ are small, we can expand the Lagrangian about $L(q_i,\dot{q}_i,t)$, in the first power of the $\delta$:
-%\begin{align}
-%\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta q_i', \dot{q}_i'+\delta\dot{q}_i',t)dt &=\int_{t_a+\delta t_a}^{t_b+\delta t_b} \left[L(q_i,\dot{q}_i,t) +\sum_{i=1}^n \left(\frac{\partial L}{\partial q_i}\delta q_i'+\frac{\partial L}{\partial \dot{q}_i}\delta\dot{q}_i'+\dots\right) \right]dt\nonumber\\
-%&=\int_{t_a+\delta t_a}^{t_b+\delta t_b}\left[L(q_i,\dot{q}_i,t) +\sum_{i=1}^n \left(\frac{\partial L}{\partial q_i}\delta q_i'+p_i\delta\dot{q}_i'\right) \right]dt\nonumber\\
-%&=\int_{t_a+\delta t_a}^{t_b+\delta t_b}\left[L(q_i,\dot{q}_i,t) +\sum_{i=1}^n \left(\dot{p}\delta q_i'+p_i\delta\dot{q}_i'\right) \right]dt\nonumber\\
-%&=\int_{t_a+\delta t_a}^{t_b+\delta t_b} \left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]dt\nonumber\\
-%&=\int_{t_a}^{t_b} \left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]dt\nonumber\\
-%&-\int_{t_a}^{t_b} \frac{d}{dt}\left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]\delta t dt\nonumber\\
-%&=\int_{t_a}^{t_b} \left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]dt -\int_{t_a}^{t_b} \frac{d}{dt}L(q_i,\dot{q}_i,t)\delta t dt
-%\end{align}
-%where the term of order $\delta q_i \delta t$ was dropped, and we used the relation that we derived to change the limits of the integral.
-%
-%If we now require that $\delta S=0$, by taking the difference between the transformed and untransformed actions:
-%\begin{align}
-%\delta S&=\int_{t_a}^{t_b} \left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]dt -\int_{t_a}^{t_b} \frac{d}{dt}L(q_i,\dot{q}_i,t)\delta t dt-\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt\nonumber\\
-%&=\int_{t_a}^{t_b} \frac{d}{dt}\left[ \sum_{i=1}^n p_i\delta q_i' -L(q_i,\dot{q}_i,t)\delta t\right] dt\nonumber\\
-%&=\int_{t_a}^{t_b} \frac{d}{dt}\left[ \sum_{i=1}^n p_i(\delta q_i+\dot{q}_i\delta t) -L(q_i,\dot{q}_i,t)\delta t\right] dt\nonumber\\
-%&=\int_{t_a}^{t_b} \frac{d}{dt}\left[\sum_{i=1}^np_i\delta q_i +\left(\sum_{i=1}^n (p_i\dot{q}_i)-L\right)\delta t\right]dt=0
-%\end{align}
-%Hence, under the conditions
+It is also useful to define the \textbf{local} (or ``form'') variation, which compares the two functions at the \textbf{same} value of $t$:
+\begin{align}
+\delta_0 q_i \equiv q_i'(t)-q_i(t)
+\end{align}
+The two are related, to first order, by expanding $q_i'(t')=q_i'(t+\delta t)=q_i'(t)+\dot{q}_i\delta t$:
+\begin{align}
+\delta q_i&=\delta_0 q_i+\dot{q}_i\delta t\nonumber\\
+\therefore \delta_0 q_i&=\delta q_i-\dot{q}_i\delta t
+\label{eqn:localvar}
+\end{align}
+The distinction matters, because only the \textbf{local} variation commutes with the time derivative:
+\begin{align}
+\delta_0 \dot{q}_i = \frac{d}{dt}\left(\delta_0 q_i\right)
+\label{eqn:localcommute}
+\end{align}
+since it is taken at fixed $t$. This is precisely the property that we will need in order to integrate by parts. (The total variation does \textbf{not} have this property, and using it here is the single easiest way to get the wrong answer.)
+
+Writing the transformed action with $t$ as the dummy integration variable, the integrand is evaluated at the same $t$ as the un-transformed one, so it is the local variation that appears:
+\begin{align}
+S'&=\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta_0 q_i, \dot{q}_i+\delta_0\dot{q}_i,t)dt\nonumber\\
+\therefore \delta S&=S'-S=\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta_0 q_i, \dot{q}_i+\delta_0\dot{q}_i,t)dt-\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt
+\end{align}
+where the $\delta t_{a(b)}=g(t_{a(b)}) \delta \epsilon$ in the limits of the integral can in principle depend on $t$ (through $g$) and are thus different at the two end points. If the action is invariant under the transformation, then $\delta S=0$.
+
+\subsection{Shifting the limits of the integral}
+We first need a way to move the shifted limits back onto the original interval. Let $f(t)$ be any function and $F(t)$ its anti-derivative. Using a Taylor expansion, $F(t+\delta t)=F(t)+\frac{dF}{dt}\delta t=F(t)+f\delta t$, we have:
+\begin{align}
+\int_{t_a+\delta t_a}^{t_b+\delta t_b} f\,dt &= F(t_b+\delta t_b)-F(t_a+\delta t_a)\nonumber\\
+&=F(t_b)+\left(f\delta t\right)\Big\rvert_{t_b}-F(t_a)-\left(f\delta t\right)\Big\rvert_{t_a}\nonumber\\
+&=\int_{t_a}^{t_b}f\,dt+\Big[f\delta t\Big]_{t_a}^{t_b}\nonumber\\
+\therefore \int_{t_a+\delta t_a}^{t_b+\delta t_b} f\,dt&=\int_{t_a}^{t_b}f\,dt+\int_{t_a}^{t_b}\frac{d}{dt}\left(f\delta t\right)dt
+\label{eqn:shiftlimits}
+\end{align}
+where in the last line we wrote the boundary term as the integral of a total derivative.
+
+\subsection{Expanding the integrand}
+Next we expand the integrand to first order in the variations:
+\begin{align}
+L(q_i+\delta_0 q_i,\dot{q}_i+\delta_0\dot{q}_i,t)&=L(q_i,\dot{q}_i,t)+\sum_{i=1}^n\left(\frac{\partial L}{\partial q_i}\delta_0 q_i+\frac{\partial L}{\partial \dot{q}_i}\delta_0\dot{q}_i\right)
+\end{align}
+The un-transformed motion satisfies Lagrange's equations, so we may substitute $\frac{\partial L}{\partial \dot{q}_i}=p_i$ and $\frac{\partial L}{\partial q_i}=\dot{p}_i$, and then use equation \ref{eqn:localcommute}:
+\begin{align}
+\sum_{i=1}^n\left(\frac{\partial L}{\partial q_i}\delta_0 q_i+\frac{\partial L}{\partial \dot{q}_i}\delta_0\dot{q}_i\right)&=\sum_{i=1}^n\left(\dot{p}_i\delta_0 q_i+p_i\frac{d}{dt}\delta_0 q_i\right)\nonumber\\
+&=\frac{d}{dt}\sum_{i=1}^n p_i\delta_0 q_i
+\end{align}
+so that the transformed integrand is simply the original Lagrangian plus a total time derivative:
+\begin{align}
+L(q_i+\delta_0 q_i,\dot{q}_i+\delta_0\dot{q}_i,t)=L+\frac{d}{dt}\sum_{i=1}^n p_i\delta_0 q_i
+\label{eqn:transformedL}
+\end{align}
+
+\subsection{The conserved quantity}
+We now put the two pieces together. Applying equation \ref{eqn:shiftlimits} to equation \ref{eqn:transformedL}, and dropping the term that is second order in the variations (the product $\delta_0 q_i\,\delta t$):
+\begin{align}
+S'&=\int_{t_a}^{t_b}\left[L+\frac{d}{dt}\sum_{i=1}^n p_i\delta_0 q_i\right]dt+\int_{t_a}^{t_b}\frac{d}{dt}\left(L\delta t\right)dt\nonumber\\
+\therefore \delta S&=S'-S=\int_{t_a}^{t_b}\frac{d}{dt}\left[\sum_{i=1}^n p_i\delta_0 q_i+L\delta t\right]dt
+\end{align}
+Finally, we express the result in terms of the total variation, using equation \ref{eqn:localvar}:
+\begin{align}
+\sum_{i=1}^n p_i\delta_0 q_i+L\delta t&=\sum_{i=1}^n p_i\left(\delta q_i-\dot{q}_i\delta t\right)+L\delta t\nonumber\\
+&=\sum_{i=1}^n p_i\delta q_i-\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)\delta t
+\end{align}
+so that the variation of the action is:
+\begin{align}
+\delta S=\int_{t_a}^{t_b}\frac{d}{dt}\left[\sum_{i=1}^n p_i\delta q_i-\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)\delta t\right]dt=0
+\end{align}
+Since this must hold for \textbf{any} choice of the end points $t_a$ and $t_b$, the integrand must vanish identically; that is, the quantity in the square brackets does not change with time.
+
 Under the condition that $\delta S=0$ the following quantity $Q$ is conserved (does not vary with time):
 \begin{align}
 Q&\equiv\sum_{i=1}^np_i\delta q_i -\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)\delta t\nonumber\\

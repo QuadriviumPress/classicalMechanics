@@ -1,12 +1,12 @@
 \chapter{Solving differential equations numerically}
-Differential equations arise often in physics, as well as in other fields (e.g. economics, biology, etc.). Differential equations are characterized by the fact that they relate a function and its derivatives. Ordinary differential equations (ODEs) contain a function of only 1 dependent variable. Partial differential equations (PDEs), contain functions of multiple variable and typically relate the function to its partial derivatives. PDEs are generally more complex to solve.
+Differential equations arise often in physics, as well as in other fields (e.g. economics, biology, etc.). Differential equations are characterized by the fact that they relate a function and its derivatives. Ordinary differential equations (ODEs) contain a function of only 1 independent variable. Partial differential equations (PDEs) contain functions of multiple independent variables and typically relate the function to its partial derivatives. PDEs are generally more complex to solve.
 
 \section{Ordinary Differential Equations}
-ODEs are characterized by the fact that they have only 1 dependent variable. For example
+ODEs are characterized by the fact that they have only 1 independent variable. For example
 \begin{align}
  \frac{d^2y}{dx^2} + a(x) \frac{dy}{dx} = b(x) 
 \end{align}
-is called a second order ODE. The order of the ODE is given by its highest derivative (in this case, we have a second order derivative). Generally, the goal is to solve for the function y(x). 
+is called a second order ODE. The order of the ODE is given by its highest derivative (in this case, we have a second order derivative). Generally, the goal is to solve for the function $y(x)$. 
 
 Any order ODE can be reduced to a coupled-system of first order ODEs, by introducing a variable substitution. The above equation can be re-written by introducing a new function $z(x)$:
 \begin{align}
@@ -19,11 +19,11 @@ More generally, the problems can be reduced to solving a set of coupled first or
 \end{align}
 
 \section{Initial value and boundary value problems}
-ODE problems can be divided into two categories, based on the constraints that we have on the functions. Initial value problems (IVP), are characterized by a set of constraints on the function at a certain value of x. For example, the function and all of its derivatives are know at x=0, and we wish to find their values as a function of x. 
+ODE problems can be divided into two categories, based on the constraints that we have on the functions. Initial value problems (IVP), are characterized by a set of constraints on the function at a certain value of $x$. For example, the function and all of its derivatives are known at $x=0$, and we wish to find their values as a function of $x$. 
 
-Boundary value problems (BVP), are characterized by a set of constraints given at more than one value of x, and one typically wants to know the value of the function and its derivatives between the "boundaries". BVPs are generally more difficult to solve. 
+Boundary value problems (BVP), are characterized by a set of constraints given at more than one value of $x$, and one typically wants to know the value of the function and its derivatives between the ``boundaries''. BVPs are generally more difficult to solve. 
 
-In this lesson, we will only look at some basic methods for solving differential equations, as it is quite a complex field. One of the main issues in these algorithms (in a real world application), is to control numerical stability and minimize round-off errors. We will only concern ourselves with some of the more basic algorithms for solving these equations.
+In this appendix, we will only look at some basic methods for solving differential equations, as it is quite a complex field. One of the main issues in these algorithms (in a real world application), is to control numerical stability and minimize round-off errors. We will only concern ourselves with some of the more basic algorithms for solving these equations.
 
 \section{Initial value problems}
 In this section, we look at how to solve the general problem of a set of first order coupled differential equations:
@@ -31,7 +31,7 @@ In this section, we look at how to solve the general problem of a set of first o
 \frac{dy_i}{dx} = f_i(x, y_1,y_2,\ldots )
 \end{align}
 
-where the functions $f_i$ are known, and the unknown functions, $y_i$, are known at a certain value of of $x=x_0$:
+where the functions $f_i$ are known, and the unknown functions, $y_i$, are known at a certain value $x=x_0$:
 \begin{align}
  y_0(x_0) &= c_0 \nonumber\\
  y_1(x_0) &= c_1
@@ -40,7 +40,7 @@ where the functions $f_i$ are known, and the unknown functions, $y_i$, are known
 
 \subsection{The Euler Method}
 
-The most simple way to solve IVP problems is to use the Euler method. Although this is not a recommended method, as it is easily unstable, it is very useful in understanding the basic idea behind more complex algorithms. The basic idea is given by re-writing a derivative
+The simplest way to solve IVP problems is to use the Euler method. Although this is not a recommended method, as it is easily unstable, it is very useful in understanding the basic idea behind more complex algorithms. The basic idea is given by re-writing a derivative
 \begin{align}
  \frac{dy}{dx} = f(x,y) 
 \end{align}
@@ -48,7 +48,7 @@ as
 \begin{align}
 \frac{\Delta y}{\Delta x } = f(x,y)
 \end{align}
-At a small distance $h=d)$, from $x_0$, we thus have:
+At a small distance $h=\Delta x$ from $x_0$, we thus have:
 \begin{align}
  k_1&=\Delta xf(x_0,y(x_0))=hf(x_0,y(x_0)) \nonumber\\
  y(x_0+h) &= y(x_0) + k_1 
@@ -61,9 +61,9 @@ The Runge-Kutta (RK) method builds upon the Euler method to yield a better estim
 \begin{align}
  k_1 &= hf(x_0,y_0) \nonumber\\
  k_2 &= hf(x_0+\frac{1}{2}h,y_0+\frac{1}{2}k_1) \nonumber\\
- y(x_0+h) &= y(x_0)+k2 
+ y(x_0+h) &= y(x_0)+k_2 
 \end{align}
-It can be shown that the error in $y$ is of order $h^3$ for this method. In general the nth order RK method has an error of order $h^{n+1}$.
+It can be shown that the error in $y$ is of order $h^3$ for this method. In general the $n$th order RK method has an error of order $h^{n+1}$.
 
 By far the most common Runge-Kutta method is the 4th order method (RK4), given by:
 \begin{align}
@@ -74,7 +74,7 @@ By far the most common Runge-Kutta method is the 4th order method (RK4), given b
  \vec{y}(x_0+h) &= \vec{y}(x_0)+\frac{1}{6}\vec{k}_1 +\frac{1}{3}\vec{k}_2 +\frac{1}{3}\vec{k}_3 +\frac{1}{6} \vec{k}_4 
 \end{align}
 where we have generalized the $k_i$ to vectors, for a system of ODEs (each equation above is true by component).
-\begin{example}{0pt}{Solving for the motion of a simple harmonic oscillation with a friction term}{}
+\begin{example}{0pt}{Solving for the motion of a simple harmonic oscillator with a friction term}{}
  The friction term is proportional to velocity (and in the direction opposite of motion):
 \begin{align*}
  m\frac{d^2x}{dt^2}+c\frac{dx}{dt}+kx = 0
@@ -84,41 +84,41 @@ We can re-write this as:
  \frac{dy_0}{dx} &= y_1 \nonumber\\
  \frac{dy_1}{dx} &= -\frac{1}{m}(ky_0+cy_1) 
 \end{align*}
-Where $y_0(x)$ is really $x(t)$, the position of the mass as a function of time, and $y_1(x)$ , is really $\frac{dx}{dt}$, the speed as a function of $t$. Let's say that we know the position and velocity at $t=0$, we can then use the RK4 method to solve for the position as a function of $t$. 
+Here $y_0$ is really $x(t)$, the position of the mass as a function of time, and $y_1$ is really $\frac{dx}{dt}$, the speed as a function of $t$. Let's say that we know the position and velocity at $t=0$, we can then use the RK4 method to solve for the position as a function of $t$. 
 \end{example}
 
 \section{Python code to solve ODEs with IVPs}
-The following code is written in python and can be run in Windows, Linux, or Mac OS. The internet provides plenty of resources for finding out how to run python on your own computer. In addition to python, you will need to install the python package called ``matplotlib'', which can be found on the internet or is also a part of the ``scipy'' package.
+The following code is written in Python 3 and can be run in Windows, Linux, or Mac OS. The internet provides plenty of resources for finding out how to run Python on your own computer. In addition to python, you will need to install the python package called ``matplotlib'', which can be found on the internet or is also a part of the ``scipy'' package.
 
-The code implement the RK4 stepper in a simple way (that is, the step-size is held constant). In order to use the code, you must first write the ODE's in the form of n first order coupled ODEs:
+The code implements the RK4 stepper in a simple way (that is, the step-size is held constant). In order to use the code, you must first write the ODEs in the form of $n$ first order coupled ODEs:
 \begin{align}
 \frac{dy_0}{dx}=f_0(y_0,y_1,\dots ,y_n,x)\nonumber\\
 \frac{dy_1}{dx}=f_1(y_0,y_1,\dots ,y_n,x)\nonumber\\
 \dots\nonumber\\
-\frac{dy_n}{dx}=f_n(y_0,y_1,\dots ,y_n,x)\nonumber\\
+\frac{dy_n}{dx}=f_n(y_0,y_1,\dots ,y_n,x)\nonumber
 \end{align}
 The functions are then the following:
 \begin{itemize}
-\item step() - No need to modify, implements 1 RK4 step
-\item solve() - Use this to solve the ODE, you must pass it the following arguments:
+\item \texttt{step()} - No need to modify, implements 1 RK4 step
+\item \texttt{solve()} - Use this to solve the ODE, you must pass it the following arguments:
 \begin{itemize}
-\item stepsize - the size of the step to use for stepping the solution
-\item x0 - the initial value of the independent variable
-\item nSteps - the number of steps to perform (so the solution will be found between x0 and x0+nSteps*stepsize
-\item derivs - the derivatives (these are specified later)
-\item initialConditions - this is a python list (an array) with the initial values of all the $y_i$ at x0. The dimension of this array must be the same as there are unknown functions to solve. This is filled later in the code.
+\item \texttt{stepsize} - the size of the step to use for stepping the solution
+\item \texttt{x0} - the initial value of the independent variable
+\item \texttt{nSteps} - the number of steps to perform, so that the solution is found between \texttt{x0} and \texttt{x0} $+$ \texttt{nSteps} $\times$ \texttt{stepsize}
+\item \texttt{derivs} - the derivatives (these are specified later)
+\item \texttt{initialConditions} - this is a Python list (an array) with the initial values of all the $y_i$ at x0. The dimension of this array must be the same as there are unknown functions to solve. This is filled later in the code.
 \end{itemize}
-\item plot() - this plots the results. It create one plot, then the user must close the screen and the program will then show the next plot (going through all the $y_i$).
-\item derivs() - this function must be modified by the user to actually hold the $f_i$. It takes as arguments the 'yin' which is a python list (array) of the values of all the $y_i$, as well as the value of x. The user needs to modify the variable 'dy', which is a list containing all the $f_i$. In the example, dy is filled with the derivatives from the simple harmonic oscillator above.
+\item \texttt{plot()} - this plots the results. It creates one plot, then the user must close the screen and the program will then show the next plot (going through all the $y_i$).
+\item \texttt{derivs()} - this function must be modified by the user to actually hold the $f_i$. It takes as arguments \texttt{yin}, which is a Python list (array) of the values of all the $y_i$, as well as the value of $x$. The user needs to modify the variable \texttt{dy}, which is a list containing all the $f_i$. In the example, \texttt{dy} is filled with the derivatives from the simple harmonic oscillator above.
 \end{itemize}
-In principle the code can be used without understanding too many of the details. The user needs to modify 'dy' inside of the 'derivs()' function, set the initialConditions list, and decide on the stepping parameters when calling solve().
+In principle the code can be used without understanding too many of the details. The user needs to modify \texttt{dy} inside the \texttt{derivs()} function, set the \texttt{initialConditions} list, and decide on the stepping parameters when calling \texttt{solve()}.
 \begin{verbatim}
 #! /usr/bin/python
 
 #from ROOT import TGraph, TCanvas
 import matplotlib.pyplot as plt
 
-#RK4-5 stepper
+#RK4 stepper
 def step(stepsize, yin, x, derivs):
     dy=derivs(x,yin)
     k1=[]
@@ -153,11 +153,11 @@ def step(stepsize, yin, x, derivs):
 def solve(stepsize,x0,nSteps,derivs,initialConditions):
     y=[]
     y.append([x0,initialConditions])
-    print "Initial ", y
+    print("Initial ", y)
     for i in range (0,nSteps):
       x=x0+i*stepsize
-      #print y[len(y)-1][1:][0]
-      y.append([x,step(stepsize,y[len(y)-1][1:][0],x,derivs)])
+      #the new value is the one at the END of the step, so label it x+stepsize
+      y.append([x+stepsize,step(stepsize,y[len(y)-1][1:][0],x,derivs)])
     return y
 
 def plot(yx):
@@ -176,7 +176,7 @@ def derivs(x,yin):
     m=1
     k=0.5
     c=2
-    print "derivatives at ",x," ",yin
+    print("derivatives at ", x, " ", yin)
     dy=[yin[1],-1.0/m*(k*yin[0]+c*yin[1])]
     return dy
 
@@ -191,14 +191,14 @@ plot(yx)
 \end{verbatim}
 
 \section{Boundary Value Problems}
-Boundary value problems are much more difficult to solve that initial value problems, so we will only briefly cover them in this lesson. Boundary value problems (often "two point boundary value problems") are characterized by the fact that we do not know the values of all of the dependent variables (y, the functions and derivatives) at one point. Rather, we know some of the values at one point and some of the values at the other point. For example, when solving for an electric field in space, given fixed electric potentials at some electrodes and a charge distribution.
+Boundary value problems are much more difficult to solve than initial value problems, so we will only briefly cover them in this appendix. Boundary value problems (often ``two point boundary value problems'') are characterized by the fact that we do not know the values of all of the dependent variables (y, the functions and derivatives) at one point. Rather, we know some of the values at one point and some of the values at the other point. This is the situation, for example, when solving for an electric field in space, given fixed electric potentials at some electrodes and a charge distribution.
 
-There are two basic methods for solving these: "shooting" methods and "relaxation" methods. In the shooting methods, one guess values for the unknown dependent variables at the starting points, then integrates them as if they were IVP, and then corrects the initial guesses until the boundary conditions at the other end are met. Some variants involve "shooting" from both sides until they match at some middle point. The tricky part of the algorithm is in calculating how to make the adjustments based on the errors achieved at the point that was aimed at.
+There are two basic methods for solving these: ``shooting'' methods and ``relaxation'' methods. In the shooting methods, one guesses values for the unknown dependent variables at the starting point, then integrates them as if they were an IVP, and then corrects the initial guesses until the boundary conditions at the other end are met. Some variants involve ``shooting'' from both sides until they match at some middle point. The tricky part of the algorithm is in calculating how to make the adjustments based on the errors achieved at the point that was aimed at.
 
 Relaxation methods make initial guesses of the function at all points between the boundaries and then adjust those guesses until they are self-consistent.
 
 \subsection{Relaxation Method}
-The relaxation method simplifies the differential equations into many "finite difference equations". If there are N points between the boundaries, spaced by a distance d, at some point k, we approximately have:
+The relaxation method simplifies the differential equations into many ``finite difference equations''. If there are $N$ points between the boundaries, spaced by a distance $d$, then at some point $k$ we approximately have:
 \begin{align}
  x_{k+1}&=x_{k}+d \nonumber\\
  \frac{dy}{dx} &\sim \frac{y_{k+1}-y_k}{d} 
@@ -210,7 +210,7 @@ So a differential equation
 \end{align}
 can be approximated, at each point, $k$, by:
 \begin{align}
- (y_{k+1}-y_k) - df(\frac{1}{2}(x_k+d),\frac{1}{2}(y_{k+1}-y{k})) =0 
+ (y_{k+1}-y_k) - df\left(x_k+\tfrac{1}{2}d,\tfrac{1}{2}(y_{k+1}+y_k)\right) =0 
 \end{align}
 The $y_k$ and $f$ could also be vectors in the case of a higher order ODE. 
 
@@ -224,24 +224,24 @@ We will do a simple example here of solving Poisson's equation in one dimension.
 \begin{example}{0pt}{Poisson's equation}{}
 Poisson's equation describes the electric potential, given a charge distribution (Laplace's equation is a special case when the charge distribution is 0). Poisson's equation is:
 \begin{align*}
-\frac{d^2V}{dx^2}+\frac{d^2V}{dy^2}+\frac{d^2V}{dz^2}=-\frac{\rho(x,y,z)}{\epsilon} 
+\frac{\partial^2V}{\partial x^2}+\frac{\partial^2V}{\partial y^2}+\frac{\partial^2V}{\partial z^2}=-\frac{\rho(x,y,z)}{\epsilon} 
 \end{align*}
 
-where V is the electric potential, $\rho$ is the charge density, and $\epsilon$ is the dielectric constant of a material.
+where $V$ is the electric potential, $\rho$ is the charge density, and $\epsilon$ is the permittivity of the material.
 
 Let's say that we want to solve the equation in one dimension, in vacuum, between $x=0$ and $x=L=1$\,m, where we have a charge density given by:
 \begin{align*}
  \rho(x) = 0.5\times 10^{-8}+0.1\times 10^{-8}x 
 \end{align*}
-and we have the boundary condition that $V(x=0m)=100$\,V and $V(x=1m)=200$\,V.
+and we have the boundary conditions $V(x=0\,\mathrm{m})=100$\,V and $V(x=1\,\mathrm{m})=200$\,V.
 
-We start by choosing a grid size, say $h=0.01$\,m. We then divide our interval up into $L/h, (=100)$ points, and attempt to solve for $V_k$ $(k=0\dots 100)$, at each point on the grid. We will use the fact that (from our above approximation of the second derivative):
+We start by choosing a grid size, say $h=0.01$\,m. We then divide our interval up into $L/h+1=101$ grid points, and attempt to solve for $V_k$ $(k=0\dots 100)$, at each point on the grid. We will use the fact that (from our above approximation of the second derivative):
 \begin{align*}
  V_k = \frac{h^2\frac{\rho}{\epsilon}+V_{k+1}+V_{k-1}}{2} 
 \end{align*}
-We will fix the values of $V$ at $k=0$ and $k=100$ to be equal to 100\,V and 200\,V, respectively, and "randomly" set all the other $V_k = 0$.
+We will fix the values of $V$ at $k=0$ and $k=100$ to be equal to 100\,V and 200\,V, respectively, and (arbitrarily) set all the other $V_k = 0$.
 
-We will iteratively calculate the $v_k$ using the above equation until they stop changing. This is implemented in the following code, which is in C++ and needs to be compiled agains CERN's ROOT libraries.
+We will iteratively calculate the $V_k$ using the above equation until they stop changing. This is implemented in the following code, which is in C++ and needs to be compiled against CERN's ROOT libraries.
 \begin{verbatim}
 #include <iostream>
 #include <TGraph.h>
@@ -253,11 +253,11 @@ int main(int argc, char* argv[])
 {
  //simple Poisson equation solver in 1D
  double Lx=1.0;
- double epsilon=8.85e-12;//permitivity of free space
+ double epsilon=8.85e-12;//permittivity of free space
  double V0=100;//voltage at x=0
  double VL=200;//voltage at x=L
  double h=0.01;//grid size
- int N = int(Lx/h);//number of grid points
+ int N = int(Lx/h)+1;//number of grid points, k=0..N-1 spanning [0,L]
  vector<double>V(N,0.);//potential, 0 everywhere
  //Boundary conditions:
  V[0]=V0;
@@ -267,7 +267,7 @@ int main(int argc, char* argv[])
  double newV=0;
  double rhoeps=0;//rho/epsilon as a function of x
  double lastdiff=0;
- int MaxCount=10000;//to avoid infinite loop!
+ int MaxCount=50000;//to avoid infinite loop!
  int count=0;
  while(diff>maxdiff && count<MaxCount){
    diff=0;
@@ -296,5 +296,5 @@ int main(int argc, char* argv[])
  return 0;
 }
 \end{verbatim}
-In this simple program, we first start by creating a vector, $V$, to hold our answer at each point in $x$, separated by $h$. We fix the boundary value at the edges of $V$, and set all other values of $V=0$. We then loop through the values of $V$ and update them according to our equation. We keep track of the difference between the previous value and the updated value. Once that difference is small enough, we claim to have converged (as difference, we take the difference of the V that changed the most ($lastdiff>diff$)).
+In this simple program, we first start by creating a vector, $V$, to hold our answer at each point in $x$, separated by $h$. We fix the boundary value at the edges of $V$, and set all other values of $V=0$. We then loop through the values of $V$ and update them according to our equation. We keep track of the difference between the previous value and the updated value. Once that difference is small enough, we claim to have converged (as the difference, we take that of the $V$ which changed the most, tracked by \texttt{lastdiff} and \texttt{diff}).
 \end{example}

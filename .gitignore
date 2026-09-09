@@ -124,3 +124,13 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
+## Web edition build tooling
+node_modules/
+_site/
+generated/
+pdf-output/
+assets/pdf/
+assets/js/mathjax/
+assets/js/vendor/
+search_index.json

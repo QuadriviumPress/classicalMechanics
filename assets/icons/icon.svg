@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Classical Mechanics site icon: a phase-space orbit with a pendulum bob -->
+  <rect width="512" height="512" rx="96" fill="#1F4E5F"/>
+  <ellipse cx="256" cy="272" rx="168" ry="104" fill="none" stroke="#ffffff"
+           stroke-width="20" opacity="0.55"/>
+  <ellipse cx="256" cy="272" rx="92" ry="56" fill="none" stroke="#ffffff"
+           stroke-width="20" opacity="0.85"/>
+  <path d="M256 84 L 352 246" fill="none" stroke="#8FD3E0" stroke-width="22"
+        stroke-linecap="round"/>
+  <circle cx="256" cy="84" r="18" fill="#ffffff"/>
+  <circle cx="360" cy="258" r="42" fill="#8FD3E0"/>
+</svg>

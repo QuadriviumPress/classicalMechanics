@@ -1,0 +1,25 @@
+---
+permalink: /SUMMARY.html
+layout: page
+title: Contents
+eleventyExcludeFromCollections: true
+---
+
+<ul>
+  <li>{{ site.title }}
+    <ul class="toc-root">
+      {% for ch in book.chapters %}
+        <li class="{% if ch.mode == 'appendix' %}appendix{% else %}chapter{% endif %}">
+          <a href="{{ ch.url }}">{{ ch.displayTitle }}</a>
+          {% if ch.sections.length %}
+            <ul>
+              {% for s in ch.sections %}
+                <li class="section"><a href="{{ s.url }}">{{ s.displayTitle }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </li>
+</ul>

@@ -325,6 +325,10 @@ body.dark-mode pre.code {
   margin-block: 24px;
 }
 
+/* theme.css colours every in-page link via
+   `.page-wrapper .page-inner section.normal a`, which outranks a plain
+   `.landing a` — match that weight so the filled button keeps white text. */
+.book .book-body .page-wrapper .page-inner .landing .landing-actions a,
 .landing .landing-actions a {
   display: inline-block;
   padding: 10px 20px;
@@ -335,10 +339,16 @@ body.dark-mode pre.code {
   font-weight: bold;
 }
 
+.book .book-body .page-wrapper .page-inner .landing .landing-actions a.secondary,
 .landing .landing-actions a.secondary {
   background: transparent;
   color: var(--physics-color-primary);
   border: 2px solid var(--physics-color-primary);
+}
+
+body.dark-mode .landing .landing-actions a.secondary {
+  color: #8fd3e0;
+  border-color: #8fd3e0;
 }
 
 .landing .chapter-list {

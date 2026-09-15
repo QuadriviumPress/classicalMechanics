@@ -15,7 +15,7 @@ import { checkMath, reportMath } from './check-math.js';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const siteDir = path.join(root, '_site');
-const PREFIX = process.env.VERCEL ? '' : '/ClassicalMechanics';
+const PREFIX = process.env.VERCEL ? '' : '/classicalMechanics';
 
 let failures = 0;
 let checks = 0;

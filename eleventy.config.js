@@ -1,7 +1,7 @@
-// GitHub Pages serves this project site under /ClassicalMechanics/. Vercel
+// GitHub Pages serves this project site under /classicalMechanics/. Vercel
 // serves it at a domain root, so it must build with no path prefix — detected
 // via the VERCEL env var that Vercel sets automatically.
-const PATH_PREFIX = process.env.VERCEL ? '/' : '/ClassicalMechanics/';
+const PATH_PREFIX = process.env.VERCEL ? '/' : '/classicalMechanics/';
 
 export default function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);

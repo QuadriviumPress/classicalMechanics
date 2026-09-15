@@ -4,7 +4,7 @@ Eleventy build of **Essentials of Classical Mechanics** by Ryan D. Martin
 (Queen's University), rendering the original LaTeX source to a searchable,
 offline-capable web textbook.
 
-- **Repository:** https://github.com/QuadriviumPress/ClassicalMechanics
+- **Repository:** https://github.com/QuadriviumPress/classicalMechanics
 - **Upstream source:** https://github.com/OSTP/ClassicalMechanics
 - **License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
@@ -38,7 +38,7 @@ npm ci
 npm run update:vendor   # populate self-hosted MathJax + MiniSearch (once)
 npm run build           # Eleventy → search index
 npm run verify          # integrity checks over _site
-npm run serve           # dev server at http://localhost:4000/ClassicalMechanics/
+npm run serve           # dev server at http://localhost:4000/classicalMechanics/
 ```
 
 `npm run verify` is the gate: it fails on any build warning, any LaTeX

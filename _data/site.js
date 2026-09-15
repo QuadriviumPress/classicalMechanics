@@ -9,7 +9,7 @@ export default {
     'conservation laws, canonical transformations and continuous media.',
   author: 'Ryan D. Martin',
   url: 'https://quadriviumpress.github.io',
-  baseUrl: 'https://quadriviumpress.github.io/ClassicalMechanics',
-  repositoryUrl: 'https://github.com/QuadriviumPress/ClassicalMechanics',
+  baseUrl: 'https://quadriviumpress.github.io/classicalMechanics',
+  repositoryUrl: 'https://github.com/QuadriviumPress/classicalMechanics',
   sourceUrl: 'https://github.com/OSTP/ClassicalMechanics',
 };

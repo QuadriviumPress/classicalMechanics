@@ -2,7 +2,7 @@
 %This book is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 %
 %This book is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details, http://www.gnu.org/licenses/.
-\chapter{Conservations laws and symmetries}
+\chapter{Conservation laws and symmetries}
 \label{chap:ConsLaws}
 We saw in the previous chapter that cyclic coordinates lead to their conjugate momenta being constants of motion. We also saw that when the Lagrangian does not depend explicitly on time, the total energy of the system is conserved (or more precisely, the Jacobi integral is conserved). These conservation laws can be put in a more general form that states that for each symmetry in the action, there is a corresponding conserved quantity. This is called Noether's theorem.
 
@@ -18,8 +18,8 @@ The Lagrange equations of motion are thus:
 \end{align}
 Thus, if the Lagrangian does not depend explicitly on $q_i$, the generalized momentum $p_i$ is a constant (i.e. it does not change with time). The interesting point to note is that the conserved generalized momenta depend on the choice of generalized coordinates.
 
-\begin{example}{0pt}{Compare the conserved quantities for a particle moving in a potential that depends on the distance from the origin for cartesian and spherical coordinates}{}
-The Lagrangian in cartesian coordinates is given by:
+\begin{example}{0pt}{Compare the conserved quantities for a particle moving in a potential that depends on the distance from the origin for Cartesian and spherical coordinates}{}
+The Lagrangian in Cartesian coordinates is given by:
 \begin{align*}
 L=\frac{1}{2}m(\dot{x}^2+\dot{y}^2+\dot{z}^2)-V\left(\sqrt{x^2+y^2+z^2}\right)
 \end{align*}
@@ -51,7 +51,7 @@ t'&=t+\delta t=t+g(q_1,\dots ,q_n,\dot{q}_1,\dots ,\dot{q}_n, t)\delta\epsilon\n
 \delta t&=t'-t=g(q_1,\dots ,q_n,\dot{q}_1,\dots ,\dot{q}_n, t)\delta\epsilon
 \end{align}
 \begin{example}{0pt}{Determine the infinitesimal form of a continuous transformation corresponding to a translation along the x-axis of a distance $\epsilon$}{}
-Using cartesian coordinates as the generalized coordinates, the transformation equations are:
+Using Cartesian coordinates as the generalized coordinates, the transformation equations are:
 \begin{align*}
 x'&=x+\epsilon\\
 y'&=y\\
@@ -69,7 +69,7 @@ and we have $f_1=f_x=1$, and all the other $f_i$ and $g$ are equal to zero.
 \end{example}
 
 \begin{example}{0pt}{Determine the infinitesimal form of a continuous transformation corresponding to an infinitesimal rotation about the z-axis by angle $\epsilon$.}{\capfig{0.2\textwidth}{figures/SmallRotation.png}{Infinitesimal rotation of the axes by an angle $\epsilon$ around the z-axis}}
-In cartesian coordinates, we have:
+In Cartesian coordinates, we have:
 \begin{align*}
 x'&=x\cos\epsilon -y\sin\epsilon\\
 y'&=x\sin\epsilon +y\cos\epsilon
@@ -97,65 +97,87 @@ S=\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt=\int_{t_a'}^{t_b'}L(q_i',\dot{q}_i',t)dt
 \end{align}
 where on the right hand side, since $t$ is just a dummy integration variable we left it as $t$ instead of $t'$ (note however that we did need to change the limits of the integral to be in the transformed time). As a notation, we imply that $L(q_i,\dot{q}_i,t)$ depends on all the $q_i$. 
  
-Because the continuous transformations are continuous we can consider the case of the infinitesimal version of a given transformation. If the action is invariant under the infinitesimal transformation, it will also be invariant under a series of infinitesimal transformations that lead to a total transformation. Requiring invariance under the infinitesimal transformation:
-\begin{align}
-S&=\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt=\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta q_i', \dot{q}_i+\delta\dot{q}_i',t)dt\nonumber\\
-\therefore \delta S&=\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta q_i', \dot{q}_i+\delta\dot{q}_i',t)dt-\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt
-\end{align}
-where the $\delta t_{a(b)}=g(t_a(t_b)) \delta \epsilon$ in the limits of the integral, can in principle depend on $t$ (through $g$) and are thus different at the two end points. If the action is invariant under the transformation, then $\delta S=0$.
+Because these transformations are continuous, we can consider the infinitesimal version of a given transformation. If the action is invariant under the infinitesimal transformation, it will also be invariant under a series of infinitesimal transformations that build up the total transformation.
 
-%Note that we have used $q_i'=q_i+\delta q_i'$ instead of $q_i'=q_i+\delta q_i$. This is because the $q_i'$ are varied both by the transformation of coordinates, $\delta q_i$, and because of the transformation in time, $\delta t$, (since the $q_i'$ are functions of time):
-%\begin{align}
-%q_i'&= q_i +\delta q_i+\dot{q}_i\delta t+(\dots)\delta q \delta t\nonumber\\
-%\therefore\delta q_i' &=\delta q_i+\dot{q}_i\delta t
-%\end{align}
-%
-%Before proceeding, note the following identity. If we have a function $f(q_i,\dot{q}_i,t)$ and its anti-derivative $F(q_i,\dot{q}_i,t)$:
-%\begin{align}
-%\int_{t_a}^{t_b} f dt-\int_{t_a+\delta t_a}^{t_b+\delta t_b} f dt&=F(t_b)-F(t_a)-F(t_b+\delta t_b)+F(t_a+\delta t_a)\nonumber\\
-%\end{align}
-%where we can evaluate $F(t_a+\delta t_a)$ using a Taylor series:
-%\begin{align}
-%F(t_a+\delta t_a)&\equiv F(q_i(t_a+\delta t_a),\dot{q}_i(t_a+\delta t_a),t_a+\delta t_a)\nonumber\\
-%&=F(q_i(t_a),\dot{q}_i(t_a),t_a)+\frac{dF}{dt}\delta t_a\nonumber\\
-%&=F(t_a)+(\frac{dF}{dt}\delta t)\rvert _{t_a}=F(t_a)+(f\delta t)\rvert _{t_a}
-%\end{align}
-%Hence, we have:
-%\begin{align}
-%\int_{t_a}^{t_b} f dt-\int_{t_a+\delta t_a}^{t_b+\delta t_b} f dt&=F(t_b)-F(t_a)-F(t_b+\delta t_b)+F(t_a+\delta t_a)\nonumber\\
-%&=F(t_b)-F(t_a)+F(t_a)+(f\delta t)\rvert _{t_a}-F(t_b)-(f\delta t)\rvert _{t_b}\nonumber\\
-%&=(f\delta t)\rvert _{t_a}-(f\delta t)\rvert _{t_b}\nonumber\\
-%&=-\int_{t_a}^{t_b} \frac{d}{dt}f\delta t dt\nonumber\\
-%\therefore \int_{t_a+\delta t_a}^{t_b+\delta t_b} f dt &=\int_{t_a}^{t_b} f dt+\int_{t_a}^{t_b} \frac{d}{dt}f\delta t dt
-%\end{align}
-%allowing us to change the limits of the integral and put the $\delta t$ into one of the integrands.\textbf{There is some mistake, there should be a minus sign in the last equation. The next part assumes it was a minus sign}
-%
-%We now examine the transformed action, before considering the variation in the action. Since the $\delta$ are small, we can expand the Lagrangian about $L(q_i,\dot{q}_i,t)$, in the first power of the $\delta$:
-%\begin{align}
-%\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta q_i', \dot{q}_i'+\delta\dot{q}_i',t)dt &=\int_{t_a+\delta t_a}^{t_b+\delta t_b} \left[L(q_i,\dot{q}_i,t) +\sum_{i=1}^n \left(\frac{\partial L}{\partial q_i}\delta q_i'+\frac{\partial L}{\partial \dot{q}_i}\delta\dot{q}_i'+\dots\right) \right]dt\nonumber\\
-%&=\int_{t_a+\delta t_a}^{t_b+\delta t_b}\left[L(q_i,\dot{q}_i,t) +\sum_{i=1}^n \left(\frac{\partial L}{\partial q_i}\delta q_i'+p_i\delta\dot{q}_i'\right) \right]dt\nonumber\\
-%&=\int_{t_a+\delta t_a}^{t_b+\delta t_b}\left[L(q_i,\dot{q}_i,t) +\sum_{i=1}^n \left(\dot{p}\delta q_i'+p_i\delta\dot{q}_i'\right) \right]dt\nonumber\\
-%&=\int_{t_a+\delta t_a}^{t_b+\delta t_b} \left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]dt\nonumber\\
-%&=\int_{t_a}^{t_b} \left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]dt\nonumber\\
-%&-\int_{t_a}^{t_b} \frac{d}{dt}\left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]\delta t dt\nonumber\\
-%&=\int_{t_a}^{t_b} \left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]dt -\int_{t_a}^{t_b} \frac{d}{dt}L(q_i,\dot{q}_i,t)\delta t dt
-%\end{align}
-%where the term of order $\delta q_i \delta t$ was dropped, and we used the relation that we derived to change the limits of the integral.
-%
-%If we now require that $\delta S=0$, by taking the difference between the transformed and untransformed actions:
-%\begin{align}
-%\delta S&=\int_{t_a}^{t_b} \left[L(q_i,\dot{q}_i,t) +\frac{d}{dt}\sum_{i=1}^n p_i\delta q_i'\right]dt -\int_{t_a}^{t_b} \frac{d}{dt}L(q_i,\dot{q}_i,t)\delta t dt-\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt\nonumber\\
-%&=\int_{t_a}^{t_b} \frac{d}{dt}\left[ \sum_{i=1}^n p_i\delta q_i' -L(q_i,\dot{q}_i,t)\delta t\right] dt\nonumber\\
-%&=\int_{t_a}^{t_b} \frac{d}{dt}\left[ \sum_{i=1}^n p_i(\delta q_i+\dot{q}_i\delta t) -L(q_i,\dot{q}_i,t)\delta t\right] dt\nonumber\\
-%&=\int_{t_a}^{t_b} \frac{d}{dt}\left[\sum_{i=1}^np_i\delta q_i +\left(\sum_{i=1}^n (p_i\dot{q}_i)-L\right)\delta t\right]dt=0
-%\end{align}
-%Hence, under the conditions
+\subsection{Total and local variations}
+Before writing down the varied action, we must be careful about \textbf{which} variation of the coordinates we use. The quantity $\delta q_i=f_i\delta\epsilon$ introduced above is the \textbf{total} variation: it compares the new coordinate at the new time with the old coordinate at the old time:
+\begin{align}
+\delta q_i \equiv q_i'(t')-q_i(t)
+\end{align}
+It is also useful to define the \textbf{local} (or ``form'') variation, which compares the two functions at the \textbf{same} value of $t$:
+\begin{align}
+\delta_0 q_i \equiv q_i'(t)-q_i(t)
+\end{align}
+The two are related, to first order, by expanding $q_i'(t')=q_i'(t+\delta t)=q_i'(t)+\dot{q}_i\delta t$:
+\begin{align}
+\delta q_i&=\delta_0 q_i+\dot{q}_i\delta t\nonumber\\
+\therefore \delta_0 q_i&=\delta q_i-\dot{q}_i\delta t
+\label{eqn:localvar}
+\end{align}
+The distinction matters, because only the \textbf{local} variation commutes with the time derivative:
+\begin{align}
+\delta_0 \dot{q}_i = \frac{d}{dt}\left(\delta_0 q_i\right)
+\label{eqn:localcommute}
+\end{align}
+since it is taken at fixed $t$. This is precisely the property that we will need in order to integrate by parts. (The total variation does \textbf{not} have this property, and using it here is the single easiest way to get the wrong answer.)
+
+Writing the transformed action with $t$ as the dummy integration variable, the integrand is evaluated at the same $t$ as the un-transformed one, so it is the local variation that appears:
+\begin{align}
+S'&=\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta_0 q_i, \dot{q}_i+\delta_0\dot{q}_i,t)dt\nonumber\\
+\therefore \delta S&=S'-S=\int_{t_a+\delta t_a}^{t_b+\delta t_b} L(q_i+\delta_0 q_i, \dot{q}_i+\delta_0\dot{q}_i,t)dt-\int_{t_a}^{t_b}L(q_i,\dot{q}_i,t)dt
+\end{align}
+where the $\delta t_{a(b)}=g(t_{a(b)}) \delta \epsilon$ in the limits of the integral can in principle depend on $t$ (through $g$) and are thus different at the two end points. If the action is invariant under the transformation, then $\delta S=0$.
+
+\subsection{Shifting the limits of the integral}
+We first need a way to move the shifted limits back onto the original interval. Let $f(t)$ be any function and $F(t)$ its anti-derivative. Using a Taylor expansion, $F(t+\delta t)=F(t)+\frac{dF}{dt}\delta t=F(t)+f\delta t$, we have:
+\begin{align}
+\int_{t_a+\delta t_a}^{t_b+\delta t_b} f\,dt &= F(t_b+\delta t_b)-F(t_a+\delta t_a)\nonumber\\
+&=F(t_b)+\left(f\delta t\right)\Big\rvert_{t_b}-F(t_a)-\left(f\delta t\right)\Big\rvert_{t_a}\nonumber\\
+&=\int_{t_a}^{t_b}f\,dt+\Big[f\delta t\Big]_{t_a}^{t_b}\nonumber\\
+\therefore \int_{t_a+\delta t_a}^{t_b+\delta t_b} f\,dt&=\int_{t_a}^{t_b}f\,dt+\int_{t_a}^{t_b}\frac{d}{dt}\left(f\delta t\right)dt
+\label{eqn:shiftlimits}
+\end{align}
+where in the last line we wrote the boundary term as the integral of a total derivative.
+
+\subsection{Expanding the integrand}
+Next we expand the integrand to first order in the variations:
+\begin{align}
+L(q_i+\delta_0 q_i,\dot{q}_i+\delta_0\dot{q}_i,t)&=L(q_i,\dot{q}_i,t)+\sum_{i=1}^n\left(\frac{\partial L}{\partial q_i}\delta_0 q_i+\frac{\partial L}{\partial \dot{q}_i}\delta_0\dot{q}_i\right)
+\end{align}
+The un-transformed motion satisfies Lagrange's equations, so we may substitute $\frac{\partial L}{\partial \dot{q}_i}=p_i$ and $\frac{\partial L}{\partial q_i}=\dot{p}_i$, and then use equation \ref{eqn:localcommute}:
+\begin{align}
+\sum_{i=1}^n\left(\frac{\partial L}{\partial q_i}\delta_0 q_i+\frac{\partial L}{\partial \dot{q}_i}\delta_0\dot{q}_i\right)&=\sum_{i=1}^n\left(\dot{p}_i\delta_0 q_i+p_i\frac{d}{dt}\delta_0 q_i\right)\nonumber\\
+&=\frac{d}{dt}\sum_{i=1}^n p_i\delta_0 q_i
+\end{align}
+so that the transformed integrand is simply the original Lagrangian plus a total time derivative:
+\begin{align}
+L(q_i+\delta_0 q_i,\dot{q}_i+\delta_0\dot{q}_i,t)=L+\frac{d}{dt}\sum_{i=1}^n p_i\delta_0 q_i
+\label{eqn:transformedL}
+\end{align}
+
+\subsection{The conserved quantity}
+We now put the two pieces together. Applying equation \ref{eqn:shiftlimits} to equation \ref{eqn:transformedL}, and dropping the term that is second order in the variations (the product $\delta_0 q_i\,\delta t$):
+\begin{align}
+S'&=\int_{t_a}^{t_b}\left[L+\frac{d}{dt}\sum_{i=1}^n p_i\delta_0 q_i\right]dt+\int_{t_a}^{t_b}\frac{d}{dt}\left(L\delta t\right)dt\nonumber\\
+\therefore \delta S&=S'-S=\int_{t_a}^{t_b}\frac{d}{dt}\left[\sum_{i=1}^n p_i\delta_0 q_i+L\delta t\right]dt
+\end{align}
+Finally, we express the result in terms of the total variation, using equation \ref{eqn:localvar}:
+\begin{align}
+\sum_{i=1}^n p_i\delta_0 q_i+L\delta t&=\sum_{i=1}^n p_i\left(\delta q_i-\dot{q}_i\delta t\right)+L\delta t\nonumber\\
+&=\sum_{i=1}^n p_i\delta q_i-\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)\delta t
+\end{align}
+so that the variation of the action is:
+\begin{align}
+\delta S=\int_{t_a}^{t_b}\frac{d}{dt}\left[\sum_{i=1}^n p_i\delta q_i-\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)\delta t\right]dt=0
+\end{align}
+Since this must hold for \textbf{any} choice of the end points $t_a$ and $t_b$, the integrand must vanish identically; that is, the quantity in the square brackets does not change with time.
+
 Under the condition that $\delta S=0$ the following quantity $Q$ is conserved (does not vary with time):
 \begin{align}
-Q&\equiv\sum_{i=1}^np_i\delta q_i +\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)\delta t\nonumber\\
-&=\sum_{i=1}^n p_if_i +\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)g\nonumber\\
+Q&\equiv\sum_{i=1}^np_i\delta q_i -\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)\delta t\nonumber\\
+&=\sum_{i=1}^n p_if_i -\left(\sum_{i=1}^n p_i\dot{q}_i-L\right)g\nonumber
 \end{align}
-where we have (re-)introduced $\delta q_i=f_i\delta\epsilon$ and $\delta t=g\delta\epsilon$. Note that there are two terms, one is associated with invariance in time, $g$, and one is associated with invariance in space, $f$. You may recognize the one related to time as the Jacobi integral.
+where we have (re-)introduced $\delta q_i=f_i\delta\epsilon$ and $\delta t=g\delta\epsilon$. Note that there are two terms: one is associated with invariance in space, $f$, and one with invariance in time, $g$. You may recognize the one related to time as the Jacobi integral. Since $Q$ is conserved if and only if $-Q$ is, the overall sign of $Q$ is a matter of convention; the \textbf{relative} sign of the two terms is not.
 
 Note that if a symmetry preserves the Lagrangian, the action will also be preserved. It is often more straightforward to verify if the Lagrangian is invariant under a transformation. It is also more straightforward to only consider variations in the position coordinates.
 
@@ -163,24 +185,24 @@ Consider the variation of the Lagrangian with respect to the coordinate transfor
 \begin{align}
 q_i'&=q_i+f_i(q_1,\dots ,q_n)\delta\epsilon\nonumber\\
 \delta q_i&=\delta\epsilon f_i(q_1,\dots ,q_n)\nonumber\\
-\delta L&=\sum_{i=1}^n \frac{\partial L}{\partial q_i}\delta q_i+\frac{\partial L}{\partial \dot{q}_i}\delta \dot{q}_i
+\delta L&=\sum_{i=1}^n \left(\frac{\partial L}{\partial q_i}\delta q_i+\frac{\partial L}{\partial \dot{q}_i}\delta \dot{q}_i\right)
 \end{align}
-Recall the $L$ must still satisfy Lagrange's equations, so we have:
+Recall that $L$ must still satisfy Lagrange's equations, so we have:
 \begin{align}
 p_i&=\frac{\partial L}{\partial \dot{q}_i}\nonumber\\
 \dot{p}_i&=\frac{\partial L}{\partial q_i}
 \end{align}
 which we can substitute back into the variation of the Lagrangian:
 \begin{align}
-\delta L&=\sum_{i=1}^n \dot{p}_i\delta q_i+p_i\delta \dot{q}_i\nonumber\\
+\delta L&=\sum_{i=1}^n \left(\dot{p}_i\delta q_i+p_i\delta \dot{q}_i\right)\nonumber\\
 &=\frac{d}{dt}\sum_{i=1}^np_i\delta q_i\nonumber\\
 &=\delta\epsilon \frac{d}{dt}\sum_{i=1}^np_if_i(q_1,\dots ,q_n)
 \end{align}
-which must be true for any arbitrary $\epsilon$. Thus, if the variation of the Lagrangian is zero then the quantity:
+which must be true for any arbitrary $\delta\epsilon$. Thus, if the variation of the Lagrangian is zero then the quantity:
 \begin{align}
 Q=\sum_{i=1}^np_if_i(q_1,\dots ,q_n)
 \end{align}
-is conserved, which is one of the quantities we had before. In principle, the variation of $L$ can be equal to zero within a total time derivative, since adding a total time derivative to the Lagrangian does not change the equations of motion.
+is conserved, which is one of the quantities we had before. In principle, it is enough for the variation of $L$ to be equal to a total time derivative, since adding a total time derivative to the Lagrangian does not change the equations of motion.
 
 Note that Noether's theorem only applies to \textbf{continuous} transformations that leave the action or the Lagrangian unchanged. For example, a transformation that mirrors the coordinate system may preserve the Lagrangian, but it is not a continuous transformation, so does not have an associated conserved quantity. There may be other continuous symmetries that are not straightforward coordinate transforms (such as those that we considered in this proof) that may lead to less obvious conserved quantities. 
 
@@ -195,23 +217,23 @@ Q=\sum_{i=1}^np_if_i(q_1,\dots ,q_n)=p_1
 \end{align}
 is conserved. That is, we recover the observation that was made about cyclic coordinates: if a coordinate does not appear explicitly in the Lagrangian (thus the Lagrangian is invariant when that coordinate is transformed), the conjugate momentum for that coordinate is conserved.
 
-More generally, for each direction in space that the Lagrangian is symmetric, momentum in that direction is a conserved quantity. In cartesian coordinates, this is the principle of conservation of momentum.
+More generally, for each direction in space in which the Lagrangian is symmetric, momentum in that direction is a conserved quantity. In Cartesian coordinates, this is the principle of conservation of momentum.
 
 \section{Rotational symmetry}
-Consider a Lagrangian that is invariant under a rotation about the z-axis. We saw in example \ref{ex:zrotation} that for a rotation about the z-axis in cartesian coordinates, we have:
+Consider a Lagrangian that is invariant under a rotation about the z-axis. We saw in example \ref{ex:zrotation} that for a rotation about the z-axis in Cartesian coordinates, we have:
 \begin{align}
-f_1&=-y\\
-f_2&=x\\
-f_3&=0\\
+f_1&=-y\nonumber\\
+f_2&=x\nonumber\\
+f_3&=0\nonumber\\
 g&=0
 \end{align}
 The conserved quantity is thus:
 \begin{align}
 Q=\sum_{i=1}^np_if_i=-p_xy+p_yx
 \end{align}
-which is the $z$ component of angular momentum:
+which is the $z$ component of the angular momentum $\vec{\ell}=\vec{r}\times\vec{p}$ (we write the angular momentum as $\vec{\ell}$ here to avoid any confusion with the Lagrangian $L$):
 \begin{align}
-\vec{L}=\vec{r}\times\vec{p}
+\vec{\ell}=\vec{r}\times\vec{p}
 \end{align}
 
 In general, the angular momentum in a direction is conserved if the Lagrangian is invariant to rotations about an axis in that direction.
@@ -223,8 +245,9 @@ t'=t+\delta \epsilon
 \end{align}
 This gives the conserved quantity:
 \begin{align}
-Q=\sum_{i=1}^np_i\dot{q}_i-L
+Q=-\left(\sum_{i=1}^np_i\dot{q}_i-L\right)
 \end{align}
+and, since the overall sign is immaterial, so is $\sum_{i}p_i\dot{q}_i-L$.
 
 We have already seen that when the Lagrangian does not explicitly depend on time, the quantity:
 \begin{align}

@@ -4,14 +4,14 @@
 %This book is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details, http://www.gnu.org/licenses/.
 \chapter{Calculus of variations}
 \label{chap:CalculusVariation}
-The calculus of variations is fundamental in understanding the principles of analytic mechanics. The main problems to be considered are those of finding stationary values of functions and of integrals. Technically, the analysis of stationary values of functions is called ``calculus'', while that of integrals is called ``calculus of variations''
+The calculus of variations is fundamental in understanding the principles of analytic mechanics. The main problems to be considered are those of finding stationary values of functions and of integrals. Technically, the analysis of stationary values of functions is called ``calculus'', while that of integrals is called ``calculus of variations''.
 
 \section{Virtual displacement}
 The calculus of variations deals with ``virtual'' displacements, rather than ``differential'' displacements, and ``variations of functions''. For example, when considering the time-evolution of some coordinate, $q(t)$, one can  write the differential, $dq$, which is a measure of the infinitesimal change in $q$ for a given change, $dt$, in time. 
 
 A virtual displacement, denoted $\delta q$, is a change in $q(t)$, without the corresponding change in time. That is, the value of $q(t)$ is infinitesimally displaced from the value that it should have at a particular time. In some respects, this is an un-physical change in $q$.
 
-As will be seen later, it is very useful to look at these un-physical changes in quantities to set restriction on how they can change physically, thus determining their equations of motion. Another example is the potential energy of a marble at the bottom of the bowl; it may be interesting for us to consider how the potential energy would change if the marble were to be (un-physically) displaced horizontally away from the bottom of the bowl. Those considerations will lead us to understanding how the marble can behave physically.
+As will be seen later, it is very useful to look at these un-physical changes in quantities to set restrictions on how they can change physically, thus determining their equations of motion. Another example is the potential energy of a marble at the bottom of a bowl; it may be interesting for us to consider how the potential energy would change if the marble were to be (un-physically) displaced horizontally away from the bottom of the bowl. Those considerations will lead us to understanding how the marble can behave physically.
 
 \section{Variation of a function}
 Consider a function, $y=f(x)$, and a new function, $\bar{f}(x)$:
@@ -23,7 +23,7 @@ where $\epsilon$ is a number that we can make arbitrarily small, and $\phi(x)$ i
 \label{eqn:vardef}
 \delta y \equiv \bar{f}(x) -f(x) = \epsilon \phi(x)
 \end{align}
-The change in $f(x)$ is infinitesimal and ``virtual'', meaning that we can choose any arbitrary well behaved $\phi(x)$. Thus $\delta y$ does not represent a ``real'' change in the function from a change in its dependent variables. Again, note the difference between $\delta y$ and $dy$; $dy$ is the (familiar) change in $f(x)$ from a corresponding change in $x$ by $dx$, while $\delta y$ is a change in $f(x)$ \textbf{without} a change in $x$, and is a \textbf{new} function. This is illustrated in Figure \ref{fig:VirtualDisplacement}.
+The change in $f(x)$ is infinitesimal and ``virtual'', meaning that we can choose any arbitrary well behaved $\phi(x)$. Thus $\delta y$ does not represent a ``real'' change in the function from a change in its independent variable. Again, note the difference between $\delta y$ and $dy$; $dy$ is the (familiar) change in $f(x)$ from a corresponding change in $x$ by $dx$, while $\delta y$ is a change in $f(x)$ \textbf{without} a change in $x$, and is a \textbf{new} function. This is illustrated in Figure \ref{fig:VirtualDisplacement}.
 \begin{figure}[!h]
 \center
 \includegraphics[width=0.5\textwidth]{figures/VirtualDisplacement.png}
@@ -40,7 +40,7 @@ Consider the ``derivative of the variation'':
 \begin{align}
 \frac{d}{dx}\delta y =\frac{d}{dx} \left[\bar{f}(x)-f(x) \right]=\frac{d}{dx} \epsilon \phi(x)=\epsilon \phi'(x)
 \end{align}
-where we have used an apostrophe (') to designate derivatives with respect to $x$. Now consider the ``variation of the derivative'':
+where we have used a prime ($'$) to designate derivatives with respect to $x$. Now consider the ``variation of the derivative'':
 \begin{align}
 \delta \left(\frac{d}{dx}f(x)\right) \equiv \frac{d\bar{f}}{dx}-\frac{df}{dx} = \frac{d}{dx} (f(x)+\epsilon \phi(x)) - \frac{df}{dx} = \epsilon \phi'(x)
 \end{align}
@@ -65,7 +65,7 @@ We can expand $F(y+\delta y)$ using a Taylor series, where $\delta y$ is small:
 \begin{align}
 F(y+\delta y)=F(y)+\frac{dF}{dy}\delta y + \frac{1}{2!}\frac{d^2F}{dy^2}(\delta y)^2+\dots 
 \end{align}
-Given that $\delta y$ are small, we can ignore the terms in powers higher than 2:
+Given that $\delta y$ is small, we can ignore the terms of second order and higher:
 \begin{align}
 F(y+\delta y)&=F(y)+\frac{dF}{dy}\delta y\nonumber\\
 \therefore \delta F(y)&=\frac{dF}{dy}\delta y
@@ -82,7 +82,7 @@ Using the Chain Rule:
 If the function $F$ is a function of multiple functions, $y(x), z(x), \dots$, we proceed the same way, but using partial derivatives:
 \begin{align}
 \delta F(y,z,\dots) &= F(y+\delta y, z+\delta z, \dots)-F(y,z,\dots)\nonumber\\
-&=\frac{\partial F}{\partial y}\delta y +\frac{\partial F}{\partial z}\delta z+\dots+ \frac{1}{2!}\left(\frac{\partial^2F}{\partial y}\delta^2y+\frac{\partial^2F}{\partial z}\delta^2z+2\frac{\partial^2 F}{\partial y\partial z}\delta y \delta z+\dots \right) +\dots
+&=\frac{\partial F}{\partial y}\delta y +\frac{\partial F}{\partial z}\delta z+\dots+ \frac{1}{2!}\left(\frac{\partial^2F}{\partial y^2}(\delta y)^2+\frac{\partial^2F}{\partial z^2}(\delta z)^2+2\frac{\partial^2 F}{\partial y\partial z}\delta y \delta z+\dots \right) +\dots
 \label{eqn:varChainRuleMulti}
 \end{align}
 where again, we will neglect the terms in $\delta^2$ and higher.
@@ -102,11 +102,11 @@ whereas the virtual displacement does not have a time differential in it:
 \end{example}
 
 \section{Stationary value of a function}
-In analytic mechanics, we will be interested in the stationary value of an integral. We start by considering the stationary value of a function. For example, an n-dimensional function $F(q_1, q_2, \dots, q_n)$, can be pictured as a surface in a space with n+1 dimension (for example, imagine a 2-dimensional surface in 3-dimensional space). The stationary points of the functions are locations where the surface is ``flat'', and can correspond to local ``extrema'' (minima or maxima) or ``saddle points''. We can use the formalism of variations to find the conditions for such points. 
+In analytic mechanics, we will be interested in the stationary value of an integral. We start by considering the stationary value of a function. For example, an n-dimensional function $F(q_1, q_2, \dots, q_n)$, can be pictured as a surface in a space with $n+1$ dimensions (for example, imagine a 2-dimensional surface in 3-dimensional space). The stationary points of the functions are locations where the surface is ``flat'', and can correspond to local ``extrema'' (minima or maxima) or ``saddle points''. We can use the formalism of variations to find the conditions for such points. 
 
 If the point, $P$, is a stationary value of the function, $F(q_1, q_2, \dots, q_n)$, then, the variation of the function near $P$ in the direction of an arbitrary virtual displacement, $\delta\vec{q}$, is 0 (the function is flat in the infinitesimal region near the point). The variation of the function is (technically called the ``first variation'', as we drop the higher order terms in the Taylor series):
 \begin{align}
-\delta F&=\frac{\partial F}{\partial q_1}\delta q_1 + \frac{\partial F}{\partial q_2}\delta q_2 +\dots+\frac{\partial F}{\partial q_N}\delta q_N
+\delta F&=\frac{\partial F}{\partial q_1}\delta q_1 + \frac{\partial F}{\partial q_2}\delta q_2 +\dots+\frac{\partial F}{\partial q_n}\delta q_n
 \end{align}  
 We can write this in terms of finite numbers if we write the virtual displacements as:
 \begin{align}
@@ -114,7 +114,7 @@ We can write this in terms of finite numbers if we write the virtual displacemen
 \end{align}
 where $\vec{\alpha}$ is a vector in the direction of the virtual displacement and $\epsilon$ is a number that tends to zero. The rate of change of the function, $F$, in the direction of $\vec{\alpha}$ is:
 \begin{align}
-\frac{\delta F}{\epsilon}=\frac{\partial F}{\partial q_1}\alpha_1 + \frac{\partial F}{\partial q_2}\alpha_2 +\dots+\frac{\partial F}{\partial q_N}\alpha_N
+\frac{\delta F}{\epsilon}=\frac{\partial F}{\partial q_1}\alpha_1 + \frac{\partial F}{\partial q_2}\alpha_2 +\dots+\frac{\partial F}{\partial q_n}\alpha_n
 \end{align} 
 which must vanish for a stationary point (writing the above equation as a sum):
 \begin{align}
@@ -129,7 +129,7 @@ and we recover the familiar result from calculus that the partial derivatives mu
 
 \section{Constraints and Lagrange multipliers}
 \subsection{Single constraint}
-In some cases, the problem of finding a stationary point does not generalize to any virtual displacement, as constraints between coordinates limit the choice of direction for $\vec{\alpha}$. For example, in the case finding the minimum of the potential energy of a marble in a bowl, we would have a constraint equation in the form:
+In some cases, the problem of finding a stationary point does not generalize to any virtual displacement, as constraints between coordinates limit the choice of direction for $\vec{\alpha}$. For example, in the case of finding the minimum of the potential energy of a marble in a bowl, we would have a constraint equation in the form:
 \begin{align}
 x^2+y^2+z^2=(R-r)^2
 \end{align}
@@ -172,7 +172,7 @@ This method can thus be written a little bit more generally by considering all t
 \end{align}
 We have:
 \begin{align}
-\delta (F+\lambda f) &= \delta F+ (\delta \lambda) f + \lambda (\delta f\nonumber)\\
+\delta (F+\lambda f) &= \delta F+ (\delta \lambda) f + \lambda (\delta f)\nonumber\\
 &=\delta F + \lambda \delta f
 \end{align}
 since $f=0$. We can then construct a new function, $\bar{F}$:
@@ -194,7 +194,7 @@ Therefore, the constraint can be written as:
 \begin{align*}
 f(x,y,z)=xy+xz+yz-A=0
 \end{align*}
-We thus introduce a Lagrange multiplier, $\lambda$, and minimize
+We thus introduce a Lagrange multiplier, $\lambda$, and find the stationary point of
 \begin{align*}
 \bar{F}=F+\lambda f= xyz+\lambda(xy+xz+yz-A)
 \end{align*}
@@ -215,12 +215,12 @@ From the first two equations:
 \therefore x\lambda(y+z)=y\lambda(x+z)\\
 \lambda x= \lambda y
 \end{align*}
-giving us the possibility that either $\lambda=0$ or $x=y$. If $\lambda=0$ anyone of the above equations imply that $xyz=0$, which corresponds to a volume of zero. In principle, our method will only give us a stationary value, and a volume of zero is indeed a minimum of the volume. However, that is not the choice of interest for us, so we choose $x=y$. Combining the other two equations gives us that $x=z$, showing us that the result is a cube. We can use the constraint equations to find the dimensions of the cube:
+giving us the possibility that either $\lambda=0$ or $x=y$. If $\lambda=0$, any one of the above equations implies that $xyz=0$, which corresponds to a volume of zero. In principle, our method will only give us a stationary value, and a volume of zero is indeed a minimum of the volume. However, that is not the choice of interest for us, so we choose $x=y$. Combining the other two equations gives us that $x=z$, showing us that the result is a cube. We can use the constraint equations to find the dimensions of the cube:
 \begin{align*}
 f(x,y,z)=xy+xz+yz-A=3x^2-A=0\nonumber\\
 \therefore x=\sqrt{\frac{A}{3}}
 \end{align*}
-We found our solution and did not need to explicitly solve for the Lagrangian multiplier. Also note that our volume function itself has no maximum, however, the auxiliary condition results in a stationary value that is other than the minimum.
+We found our solution and did not need to explicitly solve for the Lagrangian multiplier. Also note that our volume function itself has no maximum; however, the auxiliary condition results in a stationary value that is other than the minimum.
 \label{ex:boxvolume}
 \end{example}
 
@@ -233,7 +233,7 @@ f_2(q_1, q_2, \dots, q_n)&=0\nonumber\\
 \dots\nonumber\\
 f_k(q_1, q_2, \dots, q_n)&=0
 \end{align}
-where we now have $n-k$ degrees of freedom. The variation of the auxiliary conditions are:
+where we now have $n-k$ degrees of freedom. The variation of the auxiliary conditions is:
 \begin{align}
 \delta f_i=\frac{\partial f_i}{\partial q_1}\delta q_1 + \frac{\partial f_i}{\partial q_2}\delta q_2 +\dots+\frac{\partial f_i}{\partial q_n}\delta q_n=0
 \end{align}
@@ -256,7 +256,7 @@ We now choose to solve for the $k$ Lagrange multipliers by eliminating the last 
 &\dots \nonumber\\
 &\frac{\partial F}{\partial q_{n-k+1}}+\lambda_1 \frac{\partial f_1}{\partial q_{n-k+1}}+\dots +\lambda_k \frac{\partial f_k}{\partial q_{n-k+1}}=0
 \end{align}
-The rest of the $n-k$ coordinates in equation \ref{eqn:multilagrangemulti} can now be varied freely, so that each corresponding terms in the sum must vanish:
+The rest of the $n-k$ coordinates in equation \ref{eqn:multilagrangemulti} can now be varied freely, so that each corresponding term in the sum must vanish:
 \begin{align}
 \sum_{i=1}^{n-k}\left(\frac{\partial F}{\partial q_i}+\lambda_1 \frac{\partial f_1}{\partial q_i}+\dots +\lambda_k \frac{\partial f_k}{\partial q_i}\right)\delta q_i=0
 \end{align}
@@ -273,11 +273,11 @@ Again, by inspection, these equations are the same as those in equation \ref{eqn
 \end{align}
 and treat all of the coordinates in the same way. That is, instead of performing the variation of $F$ subject to the auxiliary conditions, we can perform the variation on $\bar{F}$ and ``ignore'' the auxiliary conditions. This gives us the $n$ equations:
 \begin{align}
-\frac{\partial F}{\partial q_i}+\lambda_1 \frac{\partial f_i}{\partial q_i}+\dots +\lambda_k \frac{\partial f_k}{\partial q_i}=0 \text{        (i=0\dots n)}
+\frac{\partial F}{\partial q_i}+\lambda_1 \frac{\partial f_1}{\partial q_i}+\dots +\lambda_k \frac{\partial f_k}{\partial q_i}=0 \text{\qquad (i=1\dots n)}
 \end{align}
 together with the $k$ constraint equations to determine the $n$ coordinates $q_i$ and the $k$ Lagrange multipliers.
 \section{Stationary value of an integral}
-In analytic mechanics, we will find that we need to find the stationary value of an integral. For example, we may need to find the curve $y(x)$ that results in the definite integral of some function $L(y,y',x)$ being maximized (or stationary). We called the definite integral, $I$, a ``functional'':
+In analytic mechanics, we will find that we need to find the stationary value of an integral. For example, we may need to find the curve $y(x)$ that results in the definite integral of some function $L(y,y',x)$ being maximized (or stationary). We call the definite integral, $I$, a ``functional'':
 \begin{align}
 I = \int_a^b L(y,y',x)dx
 \end{align}
@@ -361,11 +361,11 @@ a notation which we will find convenient in the next section.
 \noindent
 In analytic mechanics, we will generally have a function, $L$, that depends on multiple coordinates, $q_i$, their generalized velocities, $\dot{q}$, and time will play the role of the independent variable:
 \begin{align}
-L=L(q_1,q_2,\dots,\dot{q_1}, \dot{q_2},\dots,t)
+L=L(q_1,q_2,\dots,\dot{q}_1, \dot{q}_2,\dots,t)
 \end{align}
 We will want to find the values of $q_i(t)$ that lead to a stationary value of:
 \begin{align}
-S=\int_a^b L(q_1,q_2,\dots,\dot{q_1}, \dot{q_2},\dots,t)dt
+S=\int_a^b L(q_1,q_2,\dots,\dot{q}_1, \dot{q}_2,\dots,t)dt
 \end{align}
 Following the same procedure as above, and collecting the terms for each coordinate, we can show that we get an Euler-Lagrange equation for each coordinate:
 \begin{align}
@@ -373,7 +373,7 @@ Following the same procedure as above, and collecting the terms for each coordin
 \end{align}
 
 
-\section{Stationary value of an integral that does not explicitly depend on x}
+\section{Stationary value of an integral that does not explicitly depend on $x$}
 We consider the special case when the function $L$ does not depend explicitly on $x$ (that is, it still depends explicitly on the functions $y(x)$ and $y'(x)$):
 \begin{align}
 L&=L(y,y')\nonumber\\
@@ -401,7 +401,11 @@ If the function $L$ satisfies the Euler-Lagrange equations, this implies that:
 where $k$ is a constant. This is equivalent to the Euler-Lagrange equations for the case where $L$ does not explicitly depend on $x$. It is an easier equation to solve for $y(x)$, since it only contains first order derivatives. 
 
 \subsection{The case when there are multiple functions}
-Suppose that the function $L$ depends on multiple functions $y_1(x),\dots, y_n(x)$ and their derivatives, $y'_1(x),\dots, y'_n(x)$, $L=L(y_1(x),\dots, y_n(x),y'_1(x),\dots, y'_n(x))$. If $L$ does not explicitly depend on $x$, we have:
+Suppose that the function $L$ depends on multiple functions $y_i(x)$ and their derivatives $y'_i(x)$:
+\begin{align}
+L=L(y_1(x),\dots, y_n(x),y'_1(x),\dots, y'_n(x))\nonumber
+\end{align}
+If $L$ does not explicitly depend on $x$, we have:
 \begin{align}
 \frac{dL}{dx}&=\frac{\partial L}{\partial y_1}y'_1+\dots +\frac{\partial L}{\partial y_n}y'_n+
 \frac{\partial L}{\partial y'_1}y''_1+\dots +\frac{\partial L}{\partial y'_n}y''_n\nonumber\\
@@ -410,7 +414,7 @@ Suppose that the function $L$ depends on multiple functions $y_1(x),\dots, y_n(x
 We thus consider the identity:
 \begin{align}
 \frac{d}{dx}\left(\sum_{i=1}^n\left( y_i'\frac{\partial L}{\partial y_i'}\right) -L \right)&=\sum_{i=1}^n\left( y_i''\frac{\partial L}{\partial y_i'}+y_i'\frac{d}{dx}\frac{\partial L}{\partial y_i'}\right)-\frac{dL}{dx}\nonumber\\
-&=\sum_{i=1}^n\left( y_i''\frac{\partial L}{\partial y_i'}+y_i'\frac{d}{dx}\frac{\partial L}{\partial y_i'}\right)-\sum_{i=1}^n\left(\frac{\partial L}{\partial y_i}y'_i+\frac{\partial L}{\partial y'_n}y''_n \right)\nonumber\\
+&=\sum_{i=1}^n\left( y_i''\frac{\partial L}{\partial y_i'}+y_i'\frac{d}{dx}\frac{\partial L}{\partial y_i'}\right)-\sum_{i=1}^n\left(\frac{\partial L}{\partial y_i}y'_i+\frac{\partial L}{\partial y'_i}y''_i \right)\nonumber\\
 &=\sum_{i=1}^n\left(y'_i\left[\frac{d}{dx}\frac{\partial L}{\partial y_i'}- \frac{\partial L}{\partial y_i} \right]  \right)
 \end{align}
 Again, the term on the right is zero since the Euler-Lagrange equations are satisfied by each $y_i(x)$. We thus obtain the equivalent result as we did with a single function (noting that we have a sum on the left):
@@ -423,14 +427,14 @@ where $k$ is a constant.
 
 
 \section{Stationary value of an integral with auxiliary conditions}
-We conclude this chapter by consider the stationary value of a functional with integrand, $L(q_1,q_2,\dots,\dot{q_1}, \dot{q_2},\dots,t)$, subject to $k$ constraints on the, $q_i(t)$, functions. Here, in analogy with mechanics, we chose $q(t)$ and $\dot q(t)$ as functions that depend on the independent variable, $t$ (instead of $y(x)$ as we had in the previous section).
+We conclude this chapter by considering the stationary value of a functional with integrand, $L(q_1,q_2,\dots,$ $\dot{q}_1, \dot{q}_2,\dots,t)$, subject to $k$ constraints on the $q_i(t)$. Here, in analogy with mechanics, we choose $q(t)$ and $\dot q(t)$ as functions that depend on the independent variable, $t$ (instead of $y(x)$ as we had in the previous section).
 \begin{align}
 f_1(q_1, q_2, \dots, q_n, t)&=0\nonumber\\
 f_2(q_1, q_2, \dots, q_n, t)&=0\nonumber\\
 \dots\nonumber\\
 f_k(q_1, q_2, \dots, q_n, t)&=0
 \end{align}
-where the constraints depend on time. As before, it would be possible to eliminate $k$ of the $q_i(t)$ functions, but this may not be the most mathematically convenient and may arbitrarily make some functions ``dependent'' and others ``independent''. Instead, we can use the method of the Lagrangian multipliers. The variation of the constraints are zero for all times:
+where the constraints depend on time. As before, it would be possible to eliminate $k$ of the $q_i(t)$ functions, but this may not be the most mathematically convenient and may arbitrarily make some functions ``dependent'' and others ``independent''. Instead, we can use the method of the Lagrangian multipliers. The variation of the constraints is zero for all times:
 \begin{align}
 \delta f_1&=\frac{\partial f_1}{\partial q_1}\delta q_1 + \frac{\partial f_1}{\partial q_2}\delta q_2 +\dots+\frac{\partial f_1}{\partial q_n}\delta q_n=0\nonumber\\
 \delta f_2&=\frac{\partial f_2}{\partial q_1}\delta q_1 + \frac{\partial f_2}{\partial q_2}\delta q_2 +\dots+\frac{\partial f_2}{\partial q_n}\delta q_n=0\nonumber\\
@@ -440,9 +444,9 @@ where the constraints depend on time. As before, it would be possible to elimina
 \end{align}
 We can then construct a new functional of which we want to find a stationary value:
 \begin{align}
-\delta I = \int_{t_a}^{t_b}  \delta L(q_1,q_2,\dots,\dot{q_1}, \dot{q_2},\dots,t)dt+\int_a^b (\lambda_1 \delta f_1+\lambda_2 \delta f_2 +\dots +\lambda_k \delta f_k)dt=0
+\delta I = \int_{t_a}^{t_b}  \delta L(q_1,q_2,\dots,\dot{q}_1, \dot{q}_2,\dots,t)dt+\int_{t_a}^{t_b} (\lambda_1 \delta f_1+\lambda_2 \delta f_2 +\dots +\lambda_k \delta f_k)dt=0
 \end{align}
-where we have effectively added zero to our original functional. Note that the $\lambda_i$ are in principle functions of $t$, since the $f_i$ are functions of t. The first term of the variation, after integration by parts will have a term containing $\delta q_i$ of the form:
+where we have effectively added zero to our original functional. Note that the $\lambda_i$ are in principle functions of $t$, since the $f_i$ are functions of $t$. The first term of the variation, after integration by parts will have a term containing $\delta q_i$ of the form:
 \begin{align}
 \int_{t_a}^{t_b}  \left(\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right)-\frac{\partial L}{\partial q_i}\right) \delta q_i dt
 \end{align}
@@ -452,14 +456,14 @@ and there will be a matching term in the part with the Lagrange multipliers:
 \end{align}
 This results in the functional being
 \begin{align}
-\delta I=\sum_{i=1}^n \int_a^b\left[ \left(\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right)-\frac{\partial L}{\partial q_i}\right) +\left(\lambda_1 \frac{\partial f_1}{\partial q_i}+\lambda_2\frac{\partial f_2}{\partial q_i} +\dots +\lambda_k \frac{\partial f_k}{\partial q_i} \right)\right] \delta q_i dt
+\delta I=\sum_{i=1}^n \int_{t_a}^{t_b}\left[ \left(\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right)-\frac{\partial L}{\partial q_i}\right) +\left(\lambda_1 \frac{\partial f_1}{\partial q_i}+\lambda_2\frac{\partial f_2}{\partial q_i} +\dots +\lambda_k \frac{\partial f_k}{\partial q_i} \right)\right] \delta q_i dt
 \end{align}
-In principle, the term in square brackets is \textbf{not} zero, because the $\delta q_i$ cannot all be varied independently because of the constraint equations \ref{eqn:varconstraints}. We can however \textbf{choose} the $\lambda_i$ such that the last $k$ terms are zero:
+In principle, the term in square brackets is \textbf{not} zero, because the $\delta q_i$ cannot all be varied independently, owing to the constraint equations \ref{eqn:varconstraints}. We can however \textbf{choose} the $\lambda_i$ such that the last $k$ terms are zero:
 \begin{align}
 \left[ \left(\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right)-\frac{\partial L}{\partial q_i}\right) +\left(\lambda_1 \frac{\partial f_1}{\partial q_i}+\lambda_2\frac{\partial f_2}{\partial q_i} +\dots +\lambda_k \frac{\partial f_k}{\partial q_i} \right)\right]=0 \text{  			(i=n-k+1\dots n)}
 \label{eqn:ELLambda}
 \end{align}
-Now, this leaves us with the remaining $n-k$ terms for which the $\delta q_i$, can be varied independently. Of course, the whole point of the Lagrange multiplier method is that this gives equations that are identical for all $q_i$, removing the distinction between dependent and independent variables. The above equation is thus true for all values of $i=1\dots n$!
+Now, this leaves us with the remaining $n-k$ terms for which the $\delta q_i$ can be varied independently. Of course, the whole point of the Lagrange multiplier method is that this gives equations that are identical for all $q_i$, removing the distinction between dependent and independent variables. The above equation is thus true for all values of $i=1\dots n$!
 
 We can thus re-express the problem of varying the integrand $L$ subject to auxiliary conditions as the equivalent problem of varying a modified integrand, $L'$, without worrying about auxiliary conditions:
 \begin{align}
@@ -482,14 +486,14 @@ and the overall negative sign is not important, since the Lagrange multipliers c
 \begin{example}{0pt}{Show that the Euler-Lagrange equation for $L'=L-\lambda_1f_1-\lambda_2f_2-\dots -\lambda_kf_k$ is equivalent to equation \ref{eqn:ELLambda}. That is, show that the sign in front of the Lagrange multipliers is arbitrary.}{}
 \begin{align*}
 &\frac{d}{dt}\left(\frac{\partial L'}{\partial \dot{q}_i}\right)-\frac{\partial L'}{\partial q_i}\nonumber\\
-&=\frac{d}{dt}\left(\frac{\partial}{\partial \dot{q}_i}(L-\lambda_1f_1-\dots -\lambda_kf_k)\right)-\frac{\partial}{\partial q_i}(L-\lambda_1f_1-\dots -\lambda_kf_k)\nonumber\\
+&=\frac{d}{dt}\left(\frac{\partial}{\partial \dot{q}_i}(L-\lambda_1f_1-\dots -\lambda_kf_k)\right)-\frac{\partial}{\partial q_i}(L-\lambda_1f_1-\dots -\lambda_kf_k)\nonumber
 \end{align*}
 The $\lambda_if_i$ terms do not explicitly depend on $\dot{q}_i$, and the $\lambda_i$ do not depend on the $q_i$:
 \begin{align*}
 &=\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right)-\frac{\partial}{\partial q_i}(L-\lambda_1f_1-\dots -\lambda_kf_k)\nonumber\\
 &=\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right)-\frac{\partial L}{\partial q_i}+\lambda_1\frac{\partial f_1}{\partial q_i}+\dots +\lambda_k\frac{\partial f_k}{\partial q_i}
 \end{align*}
-where we have a minus sign on all the Lagrange multipliers compared to equation \ref{eqn:ELLambda}, which is ok, since we are free to choose them.
+which is identical to equation \ref{eqn:ELLambda}. Had we instead defined $L'$ with a plus sign in front of the Lagrange multipliers, we would have obtained the same equations with $\lambda_i\to-\lambda_i$; the overall sign is therefore arbitrary, since we are free to choose the multipliers.
 \end{example}
 
 \subsection{Case when auxiliary condition is in the form of an integral}
@@ -503,11 +507,11 @@ where $C$ is a constant, and there may be any number of such constraint equation
 \end{align}
 which must be zero. We can thus use a Lagrange multiplier and add the variation of the constraint to our original integral:
 \begin{align}
-&\delta\int_{t_a}^{t_b}  L(q_1,q_2,\dots,\dot{q_1}, \dot{q_2},\dots,t)dt+\lambda\delta\int_{t_a}^{t_b} f(q_1,q_2,\dots,t)dt\nonumber\\&=\delta \int_{t_a}^{t_b}\left[L(q_1,q_2,\dots,\dot{q_1}, \dot{q_2},\dots,t)+\lambda f(q_1,q_2,\dots,t)\right] dt
+&\delta\int_{t_a}^{t_b}  L(q_1,q_2,\dots,\dot{q}_1, \dot{q}_2,\dots,t)dt+\lambda\delta\int_{t_a}^{t_b} f(q_1,q_2,\dots,t)dt\nonumber\\&=\delta \int_{t_a}^{t_b}\left[L(q_1,q_2,\dots,\dot{q}_1, \dot{q}_2,\dots,t)+\lambda f(q_1,q_2,\dots,t)\right] dt
 \end{align}
 We can solve this problem by considering the stationary value of a new function, $\bar L$:
 \begin{align}
-\bar L(q_1,q_2,\dots,\dot{q_1}, \dot{q_2},\dots,t)\equiv L(q_1,q_2,\dots,\dot{q_1}, \dot{q_2},\dots,t)+\lambda f(q_1,q_2,\dots,t)
+\bar L(q_1,q_2,\dots,\dot{q}_1, \dot{q}_2,\dots,t)\equiv L(q_1,q_2,\dots,\dot{q}_1, \dot{q}_2,\dots,t)+\lambda f(q_1,q_2,\dots,t)
 \end{align}
 and apply the Euler-Lagrange equation to $\bar L$.
 
